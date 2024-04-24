@@ -1,0 +1,97 @@
+import pandas as pd
+
+#Init data
+data1 = {
+    'Make': ['atv/utv'],
+    'Model':['all models'],
+    'Vendor Code': ['NACH'],
+    'Vendor Name':['NACHMAN INTERNATIONAL CO. LTD'],
+    'MPN': ['AT-04346'],
+    'AD ITEM NUMBER': ['127405'],
+    'Vendor Notes': ['Ref : 27-1096'],
+        }
+
+#Lists of Models
+list_models = [
+'YFM660R Raptor'
+
+
+
+
+
+    
+]
+
+#Range of Years
+years = list(range(2001, 2006))
+
+#Functions to generate Dataframes for each model
+def generate_df(model, data, year):
+    data_copy = data.copy() #creating a copy of data1 to avoid modifying the original
+    data_copy['Model'] = model
+    data_copy['Year'] = year
+    return pd.DataFrame(data_copy)
+
+#Generate Dataframes for all sets of data
+dfs = []
+for year in  years:
+    df1 = pd.concat([generate_df(model, data1, year) for model in list_models], ignore_index = True)
+    dfs.append(df1)
+    
+ #Concatenate all DataFrames
+final_df = pd.concat(dfs, ignore_index=True)
+
+#Print
+final_df
+
+
+  import pandas as pd
+
+#Init data
+data1 = {
+    'Make': ['atv/utv'],
+    'Model':['all models'],
+    'Vendor Code': ['NACH'],
+    'Vendor Name':['NACHMAN INTERNATIONAL CO. LTD'],
+    'MPN': ['AT-04347'],
+    'AD ITEM NUMBER': ['127406'],
+    'Vendor Notes': ['Ref : 27-1140'],
+        }
+
+#Lists of Models
+list_models = [
+
+'YFM700R Raptor',
+'YFM700R Raptor GYTR Edition',
+'YFM700R Raptor SE',
+'YFZ450R SE',
+'YFZ450R'
+
+
+
+
+
+    
+]
+
+#Range of Years
+years = list(range(2006, 2015))
+
+#Functions to generate Dataframes for each model
+def generate_df(model, data, year):
+    data_copy = data.copy() #creating a copy of data1 to avoid modifying the original
+    data_copy['Model'] = model
+    data_copy['Year'] = year
+    return pd.DataFrame(data_copy)
+
+#Generate Dataframes for all sets of data
+dfs = []
+for year in  years:
+    df1 = pd.concat([generate_df(model, data1, year) for model in list_models], ignore_index = True)
+    dfs.append(df1)
+    
+ #Concatenate all DataFrames
+final_df = pd.concat(dfs, ignore_index=True)
+
+#Print
+final_df
