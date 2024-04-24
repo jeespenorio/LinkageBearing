@@ -1,0 +1,94 @@
+import pandas as pd
+
+#Init data
+data1 = {
+    'Make': ['atv/utv'],
+    'Model':['all models'],
+    'Vendor Code': ['NACH'],
+    'Vendor Name':['NACHMAN INTERNATIONAL CO. LTD'],
+    'MPN': ['AT-04393'],
+    'AD ITEM NUMBER': ['129447'],
+    'Vendor Notes': ['Ref : 27-1184'],
+        }
+
+#Lists of Models
+list_models = [
+
+'YFM700R Raptor GYTR Edition',
+'YFM700R Raptor SE'
+
+   
+]
+
+#Range of Years
+years = list(range(2015, 2023))
+
+#Functions to generate Dataframes for each model
+def generate_df(model, data, year):
+    data_copy = data.copy() #creating a copy of data1 to avoid modifying the original
+    data_copy['Model'] = model
+    data_copy['Year'] = year
+    return pd.DataFrame(data_copy)
+
+#Generate Dataframes for all sets of data
+dfs = []
+for year in  years:
+    df1 = pd.concat([generate_df(model, data1, year) for model in list_models], ignore_index = True)
+    dfs.append(df1)
+    
+ #Concatenate all DataFrames
+final_df = pd.concat(dfs, ignore_index=True)
+
+#Print
+final_df
+import pandas as pd
+
+#Init data
+data1 = {
+    'Make': ['atv/utv'],
+    'Model':['all models'],
+    'Vendor Code': ['NACH'],
+    'Vendor Name':['NACHMAN INTERNATIONAL CO. LTD'],
+    'MPN': ['AT-04390'],
+    'AD ITEM NUMBER': ['129445'],
+    'Vendor Notes': ['Ref : 27-1140'],
+        }
+
+#Lists of Models
+list_models = [
+
+'LT-Z400 QuadSport Z LE',
+'LT-Z400 QuadSport Z'
+
+
+
+
+
+
+    
+]
+
+#Range of Years
+years = list(range(2009, 2015))
+
+#Functions to generate Dataframes for each model
+def generate_df(model, data, year):
+    data_copy = data.copy() #creating a copy of data1 to avoid modifying the original
+    data_copy['Model'] = model
+    data_copy['Year'] = year
+    return pd.DataFrame(data_copy)
+
+#Generate Dataframes for all sets of data
+dfs = []
+for year in  years:
+    df1 = pd.concat([generate_df(model, data1, year) for model in list_models], ignore_index = True)
+    dfs.append(df1)
+    
+ #Concatenate all DataFrames
+final_df = pd.concat(dfs, ignore_index=True)
+
+#Print
+final_df
+
+file_path = r"C:\Users\User\Desktop\nachmann\2024 TASK\SECTION 04\14_Section 04 - Linkage Bearing Kits ( 10-13-22)\Merge\10.csv"
+final_df.to_csv(file_path, index=False)
